@@ -4,14 +4,14 @@ function giveEquipment(player: player, class: string, team: string):
   
   # Default class items
   set {_sword} to stone sword named "Крутой меч"
-  set {_arrows} to 8 arrows
+  set {_arrows} to 6 arrows
   set {_bow} to bow
 
   set {_scissors} to shears
   if {_team} is "RED":
-    set {_blocks} to 64 red wool
+    set {_blocks} to 16 red wool
   else:
-    set {_blocks} to 64 blue wool
+    set {_blocks} to 16 blue wool
   delete {_extra}
 
   # Class-specific items

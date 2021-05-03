@@ -479,10 +479,13 @@ function roomWorker(id: string):
 
         # Class Picker items
         loop {rooms::%{_id}%::players::*}:
+          heal loop-value
+          feed loop-value
+
           clear loop-value's inventory
 
-          set {_class} to player head named "&es &fКлассы"
-          set slot 4 of loop-value's inventory to {_class}
+          # set {_class} to player head named "&es &fКлассы"
+          # set slot 4 of loop-value's inventory to {_class}
 
       if {_stage::time} >= 15:
         delete {_stage::starting}
