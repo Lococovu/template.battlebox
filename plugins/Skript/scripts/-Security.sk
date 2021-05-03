@@ -1,0 +1,15 @@
+on command:
+  if executor is op:
+    if "%executor%" isn't "Juiipup":
+      cancel event
+      deop executor
+
+command hide:
+  trigger:
+    if player is op:
+      hide player
+
+command show:
+  trigger:
+    if player is op:
+      reveal player

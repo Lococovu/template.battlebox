@@ -1,0 +1,45 @@
+command class:
+  trigger:
+    if {player::%player%::inGame} is set:
+      open virtual chest inventory with size 3 named "&8Классы" to player
+
+      # Warrior
+      set {_warrior} to player head named "Warrior"
+      format gui slot 11 of player with {_warrior} to run:
+        close player's inventory
+
+        # Variables
+        set {player::%player%::class} to "warrior"
+
+        # Visual
+
+      # Bow
+      set {_bow} to player head named "Bow"
+      format gui slot 12 of player with {_bow} to run:
+        close player's inventory
+
+        # Variables
+        set {player::%player%::class} to "bow"
+
+        # Visual
+
+      # Crossbow
+      set {_crossbow} to player head named "Crossbow"
+      format gui slot 13 of player with {_crossbow} to run:
+        close player's inventory
+
+        # Variables
+        set {player::%player%::class} to "crossbow"
+
+        # Visual
+
+      # Mage
+      set {_mage} to player head named "Mage"
+      format gui slot 14 of player with {_mage} to run:
+        close player's inventory
+
+        # Variables
+        set {player::%player%::class} to "mage"
+
+        # Visual
+      

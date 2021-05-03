@@ -1,0 +1,49 @@
+on break:
+  if {player::%player%::inGame} is set:
+    # Checking game and block
+    set {_id} to {player::%player%::inGame}
+    set {_wool::*} to {wool::%{_id}%::*}
+
+    set {_location} to location of event-block
+    if {_wool::*} contains {_location}:
+      updateProgress({_id})
+    else:
+      cancel event
+  else:
+    cancel event
+
+on region enter:
+  if "%region%" contains "red":
+    send title "&c▷ &fКрасные" with subtitle "&fВы присоединились к команде" to player for 3 seconds with 1 ticks fade in and 2 ticks fade out
+  else if "%region%" contains "blue":
+    send title "&9▷ &fСиние" with subtitle "&fВы присоединились к команде" to player for 3 seconds with 1 ticks fade in and 2 ticks fade out
+
+on place:
+  if {player::%player%::inGame} is set:
+    # Checking game and block
+    set {_id} to {player::%player%::inGame}
+    set {_wool::*} to {wool::%{_id}%::*}
+
+    set {_location} to event-location
+    if {_wool::*} contains {_location}:
+      updateProgress({_id})
+    else:
+      cancel event
+  else:
+    cancel event
+
+function updateProgress(id: string):
+  set {_wool::*} to {wool::%{_id}%::*}
+  
+  set {_progress::red} to 0
+  set {_progress::blue} to 0
+
+  loop {_wool::*}:
+    if "%block at loop-value%" contains "red":
+      add 1 to {_progress::red}    
+    else if "%block at loop-value%" contains "blue":
+      add 1 to {_progress::blue}
+
+  # Updating game progress
+  set {rooms::%{_id}%::progress::red} to {_progress::red}
+  set {rooms::%{_id}%::progress::blue} to {_progress::blue}

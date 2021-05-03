@@ -1,0 +1,43 @@
+function giveEquipment(player: player, class: string, team: string):
+  # Clearing player's inventory
+  clear {_player}'s inventory
+  
+  # Default class items
+  set {_sword} to stone sword named "Крутой меч"
+  set {_arrows} to 8 arrows
+  set {_bow} to bow
+
+  set {_scissors} to shears
+  if {_team} is "RED":
+    set {_blocks} to 64 red wool
+  else:
+    set {_blocks} to 64 blue wool
+  delete {_extra}
+
+  # Class-specific items
+  
+  # @warrior
+  if {_class} is "warrior":
+    set {_sword} to iron sword named "Мега крутой меч"
+  
+  # @bow
+  else if {_class} is "bow":
+    set {_arrows} to 12 arrows
+  
+  # @crossbow
+  else if {_class} is "crossbow":
+    set {_arrows} to 12 arrows
+    set {_extra} to crossbow
+  
+  # @mage
+  else if {_class} is "mage":
+    set {_extra} to potion
+
+  add {_sword} to {_player}'s inventory
+  add {_arrows} to {_player}'s inventory
+  add {_bow} to {_player}'s inventory
+  add {_extra} to {_player}'s inventory
+
+  add {_scissors} to {_player}'s inventory
+  add {_blocks} to {_player}'s inventory
+  
