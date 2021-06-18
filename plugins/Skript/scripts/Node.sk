@@ -1,0 +1,3 @@
+command list:
+  trigger:
+    send "c-001/%number of all players%" to console

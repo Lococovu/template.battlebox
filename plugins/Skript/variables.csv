@@ -290,7 +290,6 @@ bossbar::juiipup::show, boolean, 00
 bossbar::juiipup::title, string, 8040D09AD0B0D0BDD0B0D0BB20C2A766E2978F20C2A766D09ED0B6D0B8D0B4D0B0D0B5D0BC20D0B8D0B3D180D0BED0BAD0BED0B220E2978F20C2A76631C2A7652F38
 ip::127.0.0.1::auth::type, string, 80056775657374
 player::juiipup::setting::autojoinqueue, boolean, 00
-queue::id::666::status, string, 80065049434B4544
 rooms::1, string, 8005726F6F6D31
 rooms::2, string, 8005726F6F6D32
 rooms::3, string, 8005726F6F6D33
