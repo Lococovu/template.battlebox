@@ -1,6 +1,0 @@
-command list:
-  trigger:
-    send "c-001/%number of all players%" to console
-
-every 2 seconds:
-  execute console command "list"
