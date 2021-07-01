@@ -530,7 +530,7 @@ function roomWorker(id: string):
         set {_stage::time} to 0
 
       # Time plus bossbar's
-      if {_stage::time} >= 60:
+      if {_stage::time} >= 300:
         # Checking game status
         set {_progress::red} to {rooms::%{_id}%::progress::red}
         set {_progress::blue} to {rooms::%{_id}%::progress::blue}
