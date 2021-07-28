@@ -5,38 +5,6 @@ on join:
 on quit:
   delete {bossbar::%player%}
 
-command removeGlass:
-  trigger:
-    set {_id} to "room5"
-
-    set {_location} to location of target block
-    set block at {_location} to air
-
-    remove {_location} from {barrier::%{_id}%::*}
-    # add {_location} to {barrier::%{_id}%::*}
-    broadcast "%{barrier::%{_id}%::*}%"
-
-command addGlass:
-  trigger:
-    set {_id} to "room6"
-
-    set {_location} to location of target block
-    set block at {_location} to air
-
-    add {_location} to {barrier::%{_id}%::*}
-    broadcast "%{barrier::%{_id}%::*}%"
-
-command addWool:
-  trigger:
-    set {_id} to "room6"
-
-    set {_location} to location of target block
-    set block at {_location} to air
-
-    add {_location} to {wool::%{_id}%::*}
-    broadcast "%{wool::%{_id}%::*}%"
-
-
 every 1 tick:
   loop all players:
     # Checking for bossbar
@@ -57,8 +25,8 @@ every 1 tick:
 
     # Color
     if {bossbar::%loop-player%::color} is set:
-      if skellett color of bossbar {bossbar::%loop-player%} isn't {bossbar::%loop-player%::color}:
-        set skellett color of bossbar {bossbar::%loop-player%} to {bossbar::%loop-player%::color}
+      # if skellett color of bossbar {bossbar::%loop-player%} isn't {bossbar::%loop-player%::color}:
+      set skellett color of bossbar {bossbar::%loop-player%} to WHITE
 
     # Title
     if {bossbar::%loop-player%::title} is set:
@@ -133,10 +101,10 @@ every 1 tick:
           # Bossbar title
           if {_player::team} is "RED":
             set {_color} to RED
-            set {_title} to "&c▷ &fПрогресс: %{_progress}% &f● &fВремя: %round(60 - {_time})% &9c."
+            set {_title} to "&c▷ &fПрогресс: %{_progress}% &f● &fВремя: %round(300 - {_time})% &9c."
           else:
             set {_color} to BLUE
-            set {_title} to "&9▷ &fПрогресс: %{_progress}% &f● &fВремя: %round(60 - {_time})% &cc."
+            set {_title} to "&9▷ &fПрогресс: %{_progress}% &f● &fВремя: %round(300 - {_time})% &cc."
         else if {_status} is "OVERTIME":
           set {_color} to WHITE
           set {_title} to "&e▷ &fOVERTIME ● &fУбейте всех противников, что бы победить!"
@@ -165,7 +133,7 @@ every 1 tick:
         else if {_status} is "STARTING":
           set {_progress::max} to 15
         else if {_status} is "PLAYING":
-          set {_progress::max} to 60
+          set {_progress::max} to 300
         else if {_status} is "ENDING":
           set {_progress::max} to 5
 

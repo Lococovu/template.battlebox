@@ -332,7 +332,7 @@ function roomWorker(id: string):
           evaluate:
             skellett hide bossbar {_bossbar}
 
-        PlayerEntry(loop-value, true)
+        PlayerEntry(loop-value)
 
       # Keeping only spawns info
       delete {rooms::%{_id}%::progress::*}
@@ -386,7 +386,7 @@ function roomWorker(id: string):
           delete {player::%loop-value%::games::*}
           sendNotification(loop-value, "&c⚠ &fПроизошла ошибка. Вы были выкинуты с всех игр. Попробуйте ещё раз.", 6)
 
-          PlayerEntry({_player}, false)
+          PlayerEntry({_player})
 
     # Looping teams
     loop {rooms::%{_id}%::players::blue::*}:
@@ -484,8 +484,8 @@ function roomWorker(id: string):
 
           clear loop-value's inventory
 
-          # set {_class} to player head named "&es &fКлассы"
-          # set slot 4 of loop-value's inventory to {_class}
+          set {_class} to player head named "&e▤ &fКлассы &7(ПКМ)"
+          set slot 4 of loop-value's inventory to {_class}
 
       if {_stage::time} >= 15:
         delete {_stage::starting}
@@ -707,4 +707,4 @@ on respawn:
       clear player's inventory
 
   else:
-    PlayerEntry(player, false)
+    PlayerEntry(player)
