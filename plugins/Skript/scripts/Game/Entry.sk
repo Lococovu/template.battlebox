@@ -1,4 +1,4 @@
-function PlayerEntry(player: player, fromGame: boolean):
+function PlayerEntry(player: player):
   heal {_player}
   feed {_player}
   
